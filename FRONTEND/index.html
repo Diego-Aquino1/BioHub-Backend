@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioinformatics Alignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bioinformatics Alignment</h1>
+        <form id="alignmentForm">
+            <label for="seq1">Sequence 1:</label>
+            <input type="text" id="seq1" name="seq1" required>
+            
+            <label for="seq2">Sequence 2:</label>
+            <input type="text" id="seq2" name="seq2" required>
+            
+            <button type="submit">Align</button>
+        </form>
+        
+        <div id="results">
+            <h2>Results</h2>
+            <p id="finalScore"></p>
+            <div id="scoreMatrix"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

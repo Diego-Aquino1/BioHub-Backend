@@ -24,7 +24,7 @@ class NeedlemanWunshQuery:
         self.fill_matrices()
         self.traceback(self.m, self.n, '', '')
         results = self.generate_results()
-        self.write_results(results)  # Llamar a write_results con los resultados
+        # self.write_results(results)  # Llamar a write_results con los resultados
         return results
 
     def initialize_matrices(self):
