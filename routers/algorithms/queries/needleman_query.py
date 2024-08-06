@@ -24,7 +24,6 @@ class NeedlemanWunshQuery:
         self.fill_matrices()
         self.traceback(self.m, self.n, '', '')
         results = self.generate_results()
-        # self.write_results(results)  # Llamar a write_results con los resultados
         return results
 
     def initialize_matrices(self):
@@ -78,33 +77,3 @@ class NeedlemanWunshQuery:
             "alignments": [{"seq1": align[0], "seq2": align[1]} for align in self.alignments]
         }
         return results
-
-    def write_results(self, results):
-        # Escritura de los resultados en un archivo
-        with open("alignment_results.txt", "w") as file:
-            # Escribir la matriz de puntuación
-            file.write("Score Matrix:\n")
-            for row in results["score_matrix"]:
-                file.write("\t".join(map(str, row)) + "\n")
-            
-            # Escribir la matriz de traceback
-            file.write("\nTraceback Matrix:\n")
-            for row in results["traceback_matrix"]:
-                file.write("\t".join(str(cell) for cell in row) + "\n")
-            
-            # Escribir el puntaje final
-            final_score = results["final_score"]
-            file.write("\nFinal Score: {}\n".format(final_score))
-            
-            # Escribir el número de alineaciones óptimas
-            num_alignments = results["num_alignments"]
-            file.write("Number of Optimal Alignments: {}\n".format(num_alignments))
-            
-            # Escribir las alineaciones óptimas
-            file.write("\nOptimal Alignments:\n")
-            for i, alignment in enumerate(results["alignments"]):
-                file.write("Alignment {}:\n".format(i + 1))
-                file.write(alignment["seq1"] + "\n")
-                file.write(alignment["seq2"] + "\n\n")
-
-        print("Results written to alignment_results.txt")
