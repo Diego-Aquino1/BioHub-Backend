@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, Session, create_engine
+from sqlmodel import Session, create_engine
 from utilities.env import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
 
 url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
