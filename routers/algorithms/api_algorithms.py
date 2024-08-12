@@ -10,6 +10,7 @@ from routers.algorithms.controllers.sequence_identifier_controller import Sequen
 from routers.algorithms.controllers.single_clustering_controller import SingleLinkageClusteringController
 from routers.algorithms.controllers.smith_waterman_controller import SmithWatermanController
 from routers.algorithms.controllers.star_alignment_controller import StarAlignmentController
+from routers.algorithms.controllers.dna_transcription_controller import DNATranscriptionController
 from routers.algorithms.schemas.algorithms_schema import AlignmentBody, ClusteringBody, StarAlignmentBody
 
 router = APIRouter(prefix="/algorithms")
@@ -32,6 +33,14 @@ def get_products():
 @router.get('/identify/{seq}', status_code=200)
 def update_transportation(seq: str):
     controller = SequenceIdentifierController()
+    return jsonable_encoder(
+        controller.run(seq)
+    )
+
+
+@router.get('/transcription/{seq}', status_code=200)
+def update_transportation(seq: str):
+    controller = DNATranscriptionController()
     return jsonable_encoder(
         controller.run(seq)
     )

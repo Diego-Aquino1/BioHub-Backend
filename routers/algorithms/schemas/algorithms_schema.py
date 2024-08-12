@@ -6,6 +6,11 @@ class SequenceIdentifyResponse(BaseModel):
     type: str
 
 
+class DNATranscriptionResponse(BaseModel):
+    seq: str
+    transcription: str
+
+
 class AlignmentBody(BaseModel):
     seq1: str
     seq2: str

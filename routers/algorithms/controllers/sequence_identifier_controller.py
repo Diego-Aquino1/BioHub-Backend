@@ -1,5 +1,5 @@
-from routers.algorithms.queries.waterman_query import SmithWatermanQuery
-from routers.algorithms.schemas.algorithms_schema import AlignmentBody, SequenceIdentifyResponse
+from routers.algorithms.schemas.algorithms_schema import SequenceIdentifyResponse
+
 
 class SequenceIdentifierController:
     def __init__(self) -> None:
@@ -8,7 +8,7 @@ class SequenceIdentifierController:
         self.protein_chars = set("ACDEFGHIKLMNPQRSTVWY")
 
     def run(self, seq: str):
-        
+
         seq = seq.upper()
 
         seq_chars = set(seq)
@@ -28,7 +28,7 @@ class SequenceIdentifierController:
             result = "Secuencia no reconocida"
 
         response = SequenceIdentifyResponse(
-            type = result
+            type=result
         )
 
         return response
